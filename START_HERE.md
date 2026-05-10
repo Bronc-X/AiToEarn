@@ -21,6 +21,18 @@ The script will:
 
 ## 2. Fastest app path: Docker
 
+Double-click this file first:
+
+```text
+D:\Code\Toni\AItoearn\START_AITOEARN.bat
+```
+
+It starts Docker Desktop if possible, runs `docker compose up -d`, waits for the web service, and opens:
+
+```text
+http://localhost:8080
+```
+
 Docker Desktop needs elevated PowerShell on this machine.
 
 ```powershell

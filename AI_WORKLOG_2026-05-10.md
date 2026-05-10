@@ -85,6 +85,10 @@ Prepare the GitHub AiToEarn project so the remaining work is only manual login, 
   - Run only from elevated PowerShell. Installs Docker Desktop and WSL.
 - `scripts/start-aitoearn-docker.ps1`
   - Runs `docker compose up -d` and prints `http://localhost:8080`.
+- `scripts/start-aitoearn-auto.ps1`
+  - Double-click helper logic: starts Docker Desktop if possible, runs Docker Compose, waits for the web service, and opens the browser.
+- `START_AITOEARN.bat`
+  - Root-level double-click entry point for `scripts/start-aitoearn-auto.ps1`.
 - `scripts/install-electron.ps1`
   - Uses repo-local Node 20 and installs Electron app dependencies with mirror settings.
 - `scripts/open-prelogin-tabs.ps1`
