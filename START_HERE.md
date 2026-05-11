@@ -40,6 +40,8 @@ cd D:\Code\Toni\AItoearn
 powershell -ExecutionPolicy Bypass -File .\scripts\install-docker-admin.ps1
 ```
 
+If Docker reports that `C:\ProgramData\DockerDesktop` must be owned by an elevated account, rerun the same command from an administrator PowerShell. The script now repairs that folder owner before installing Docker Desktop.
+
 Reboot if Windows asks. Then:
 
 ```powershell
