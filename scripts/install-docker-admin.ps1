@@ -20,8 +20,29 @@ function Repair-DockerProgramDataAcl {
 
 Repair-DockerProgramDataAcl
 
+function Enable-DockerWindowsFeatures {
+  $features = @(
+    'Microsoft-Windows-Subsystem-Linux',
+    'VirtualMachinePlatform'
+  )
+
+  foreach ($feature in $features) {
+    $state = (Get-WindowsOptionalFeature -Online -FeatureName $feature).State
+    if ($state -ne 'Enabled') {
+      Write-Host "Enabling Windows optional feature: $feature"
+      Enable-WindowsOptionalFeature -Online -FeatureName $feature -All -NoRestart | Out-Null
+    }
+    else {
+      Write-Host "Windows optional feature already enabled: $feature"
+    }
+  }
+}
+
+Enable-DockerWindowsFeatures
+
 winget install --id Docker.DockerDesktop -e --accept-source-agreements --accept-package-agreements
-wsl --install
+wsl --install --no-distribution
+wsl --update
 
 Write-Host ''
-Write-Host 'If Windows asks for a reboot, reboot before running docker compose.'
+Write-Host 'Reboot Windows before running Docker if any feature or WSL command requested it.'

@@ -71,7 +71,8 @@ Prepare the GitHub AiToEarn project so the remaining work is only manual login, 
   - Current shell is not elevated.
   - `winget install Docker.DockerDesktop` was attempted and failed because admin rights are required.
   - A later elevated attempt showed Docker Desktop refusing `C:\ProgramData\DockerDesktop` because the folder owner was not an elevated account.
-  - `scripts/install-docker-admin.ps1` now repairs the Docker Desktop data folder owner before reinstalling.
+  - WSL package `Microsoft.WSL 2.7.3.0` is installed, but WSL still reports missing Windows optional feature or virtualization readiness from this non-elevated shell.
+  - `scripts/install-docker-admin.ps1` now repairs the Docker Desktop data folder owner, enables WSL and Virtual Machine Platform, then installs Docker Desktop.
   - Installer was downloaded under `C:\Users\Administrator\AppData\Local\Temp\WinGet\Docker.DockerDesktop.4.71.0\`.
 - Web standalone build on Windows:
   - Requires administrator PowerShell or Windows Developer Mode so Next can create symlinks.
